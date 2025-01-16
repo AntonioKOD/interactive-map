@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Location {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  latitude    Float
+  longitude   Float
+  photos      Photo[]
+  createdAt   DateTime @default(now())
+}
+
+model Photo {
+  id          String   @id @default(uuid())
+  url         String
+  locationId  String
+  location    Location @relation(fields: [locationId], references: [id], onDelete: Cascade)  // 🔹 Enable Cascade Delete
+  createdAt   DateTime @default(now())
+}
