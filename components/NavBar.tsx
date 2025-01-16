@@ -12,7 +12,7 @@ export default function NavBar() {
 
           {/* Navigation Links */}
           <div className="flex space-x-6">
-            <Link href="/map" className="text-white hover:text-gray-300 transition text-lg">
+            <Link href="/" className="text-white hover:text-gray-300 transition text-lg">
               View Map
             </Link>
             <Link href="/location" className="text-white hover:text-gray-300 transition text-lg">
